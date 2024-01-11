@@ -3,13 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class ContactDetailsPage extends StatelessWidget {
   final String name;
-  final String phone;
+  final String email;
   final String avatar;
 
   const ContactDetailsPage({
     Key? key,
     required this.name,
-    required this.phone,
+    required this.email,
     required this.avatar,
   }) : super(key: key);
 
@@ -49,8 +49,15 @@ class ContactDetailsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(avatar),
+                    radius: 35,
+                    child: ClipOval(
+                      child: Image(
+                        image: NetworkImage(avatar),
+                        fit: BoxFit.cover,
+                        width: 70,
+                        height: 70,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -92,15 +99,15 @@ class ContactDetailsPage extends StatelessWidget {
                 _detailListTile(
                   child: ListTile(
                     title: const Text(
-                      'Mobile | Indonesia',
+                      'Email',
                       style: TextStyle(
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     subtitle: Text(
-                      phone,
+                      email,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                         fontSize: 18,
                       ),
                     ),
@@ -108,7 +115,12 @@ class ContactDetailsPage extends StatelessWidget {
                 ),
                 _detailListTile(
                   child: ListTile(
-                    title: const Text('Whatsapp'),
+                    title: const Text(
+                      'Whatsapp',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     trailing: SvgPicture.asset(
                       'assets/icons/icons8-whatsapp.svg',
                     ),
@@ -116,7 +128,12 @@ class ContactDetailsPage extends StatelessWidget {
                 ),
                 _detailListTile(
                   child: ListTile(
-                    title: const Text('Telegram'),
+                    title: const Text(
+                      'Telegram',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     trailing: SvgPicture.asset(
                       'assets/icons/icons8-telegram.svg',
                     ),
